@@ -1,0 +1,7 @@
+const botonesNumeros = document.querySelectorAll('[data-number]')
+const botonesOperaciones = document.querySelectorAll('[data-operation]')
+const botoneIgual = document.querySelector('[data-equals]')
+const botoneEliminar = document.querySelector('[data-delete]')
+const botoneLimpiar = document.querySelector('[data-clear]')
+const operandoAnteriorElemento = document.querySelector('[data-operando-anterior]')
+const operandoActualElemento = document.querySelector('[data-operando-actual]')

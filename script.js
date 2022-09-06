@@ -4,12 +4,13 @@ class Calculadora{
     constructor(operandoAnteriorElemento, operandoActualElemento) {
         this.operandoActualElemento = operandoActualElemento
         this.operandoAnteriorElemento = operandoAnteriorElemento
+        this.eliminar()
     }
 
     //OPERACIONES GENERALES DE LA CALCULADORA (FUNCIONES)
     limpiar(){
-        this.operandoActualElemento = ''
-        this.operandoAnteriorElemento = ''
+        this.operandoActual = ''
+        this.operandoAnterior = ''
         this.operacion = undefined
     }
 
@@ -18,7 +19,8 @@ class Calculadora{
     }
 
     appendNumber(number) {
-        this.operandoActual = number
+        if (number === '.' && this.operandoActual.includes('.')) return
+        this.operandoActual = this.operandoActual.toString() + number.toString()
     }
 
     elegirOperacion(operacion) {
@@ -46,7 +48,7 @@ const calculadora = new Calculadora(operandoAnteriorElemento, operandoActualElem
 
 botonesNumeros.forEach(button => {
     button.addEventListener('click', () => {
-        calculadora.appendNumber(button.innerText)
-        calculadora.updateDisplay()
+      calculadora.appendNumber(button.innerText)
+      calculadora.updateDisplay()
     })
-})
+  })
